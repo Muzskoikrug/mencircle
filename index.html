@@ -24,7 +24,7 @@
 {"@type":"Product","name":"Мужское комьюнити «Живи как ты»","brand":{"@id":"https://nikitasmelyanskiy.com/#org"},
  "description":"Постоянная мужская среда: тема месяца, еженедельная настройка, живой чат и знакомства.",
  "offers":[{"@type":"Offer","name":"Live","price":"55","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://nikitasmelyanskiy.com/#join"},
-           {"@type":"Offer","name":"Live Plus","price":"99","priceCurrency":"USD","availability":"https://schema.org/LimitedAvailability","url":"https://nikitasmelyanskiy.com/#join"}]}]}
+           {"@type":"Offer","name":"Live Plus","price":"129","priceCurrency":"USD","availability":"https://schema.org/LimitedAvailability","url":"https://nikitasmelyanskiy.com/#join"}]}]}
 </script>
 <style>
 :root{
@@ -308,6 +308,9 @@ gtag('js',new Date());gtag('config','G-04R6GHW7B1');
   <div class="wrap end-in">
     <p class="mantra">Живи как ты.</p>
     <p class="fromto">Из «я хочу» — в «я так живу».</p>
+    <!-- PREZAPIS:START -->
+    <p class="kick" style="margin-top:20px">Старт осеннего сезона 5 октября · сейчас предзапись</p>
+    <!-- PREZAPIS:END -->
     <div class="tiers">
       <div class="tier">
         <p class="tname">Live</p>
@@ -318,22 +321,22 @@ gtag('js',new Date());gtag('config','G-04R6GHW7B1');
           <div>Закрытый чат и знакомства</div>
           <div>Саммари каждого эфира — по темам жизни</div>
         </div>
-        <a class="btn btn-gold" href="https://t.me/tribute/app?startapp=s15PN">Присоединиться</a>
+        <!-- PREZAPIS:START --><a class="btn btn-gold" href="https://shell-dessert-d62.notion.site/cd8242df20d6472c8cefdae64e22db10?pvs=105" target="_blank" rel="noopener">Записаться в предзапись</a><!-- PREZAPIS:END:tribute=https://t.me/tribute/app?startapp=s15PN -->
       </div>
       <div class="tier">
         <p class="tname">Live Plus</p>
-        <p class="tprice">$99<span>в месяц</span></p>
+        <p class="tprice">$129<span>в месяц</span></p>
         <div class="tinc">
           <div>Всё, что в Live</div>
           <div>Мужской круг раз в две недели</div>
           <div>Постоянная группа до шести человек</div>
           <div>Работа с личным запросом</div>
         </div>
-        <a class="btn btn-gold" href="https://t.me/tribute/app?startapp=s15PR">Присоединиться</a>
+        <!-- PREZAPIS:START --><a class="btn btn-gold" href="https://shell-dessert-d62.notion.site/cd8242df20d6472c8cefdae64e22db10?pvs=105" target="_blank" rel="noopener">Записаться в предзапись</a><!-- PREZAPIS:END:tribute=https://t.me/tribute/app?startapp=s15PR -->
       </div>
     </div>
-    <p class="founding">Founding price — для первых двадцати мужчин. Дальше Live&nbsp;Plus стоит $129 в месяц. В круге шесть человек и постоянный состав, поэтому мест ровно столько, сколько кругов Никита успевает вести лично.</p>
-    <p class="guest">Не уверен? <a href="https://calendar.app.google/zyZ835osuESFJA9z6" target="_blank" rel="noopener">Приходи гостем на одну еженедельную встречу</a> — полчаса, бесплатно, без обязательств.</p>
+    <p class="founding"><!-- PREZAPIS:START -->Старт осеннего сезона 5 октября — сейчас идёт предзапись, 1 октября пришлём ссылку на оплату всем, кто оставил заявку. <!-- PREZAPIS:END -->В круге шесть человек и постоянный состав, поэтому мест ровно столько, сколько кругов Никита успевает вести лично.</p>
+    <p class="guest">Не уверен? <a href="https://shell-dessert-d62.notion.site/2303c02a28124b52a1a1d7ffc7dc0fdf?pvs=105" target="_blank" rel="noopener">Запись на бесплатную пробную встречу</a> — по понедельникам, 9:00 (GMT+3).</p>
     <div class="share">
       <p>Знаешь мужчину, которому это подошло бы?</p>
       <button class="btn btn-line" type="button" id="share">Скопировать ссылку</button>
@@ -377,10 +380,13 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 });
 
-document.querySelectorAll('a[href*="tribute.tg"],a[href*="calendar.app.google"]').forEach(function(a){
+document.querySelectorAll('a[href*="tribute.tg"],a[href*="notion.site"]').forEach(function(a){
   a.addEventListener('click',function(){
     if(typeof gtag!=='function')return;
-    var t=a.href.indexOf('tribute')>-1?'join_click':'guest_click';
+    var t;
+    if(a.href.indexOf('tribute')>-1)t='join_click';
+    else if(a.href.indexOf('cd8242df20d6472c8cefdae64e22db10')>-1)t='prereg_click';
+    else t='guest_click';
     gtag('event',t,{link_url:a.href,link_text:(a.textContent||'').trim()});
   });
 });
