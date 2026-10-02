@@ -255,6 +255,17 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
   });
 });})();
+(function(){
+if(!matchMedia('(max-width:700px)').matches)return;
+var img=document.querySelector('.hero-bg');
+var v=document.createElement('video');
+v.className='hero-bg';v.muted=true;v.loop=true;v.playsInline=true;v.autoplay=true;
+v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('aria-hidden','true');
+v.poster='../img/greece-hero-poster.jpg';v.src='../img/greece-zakat-s-drona.mp4';
+img.insertAdjacentElement('afterend',v);
+var p=v.play();
+if(p&&p.catch){p.catch(function(){v.remove();});}
+})();
 </script>
 </body>
 </html>
