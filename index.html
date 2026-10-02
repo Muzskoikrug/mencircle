@@ -359,6 +359,15 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 });
 
+(function(){
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'],q=new URLSearchParams(location.search),saved={};
+  try{keys.forEach(function(k){var v=q.get(k);if(v)saved[k]=v;});
+    if(Object.keys(saved).length)sessionStorage.setItem('utm',JSON.stringify(saved));
+    else saved=JSON.parse(sessionStorage.getItem('utm')||'{}');}catch(e){}
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(a){
+    var u=new URL(a.href);Object.keys(saved).forEach(function(k){u.searchParams.set(k,saved[k]);});a.href=u.toString();
+  });
+})();
 document.querySelectorAll('a[href*="calendly.com"]').forEach(function(a){
   a.addEventListener('click',function(){
     if(typeof gtag!=='function')return;
@@ -375,6 +384,11 @@ if(sh){sh.addEventListener('click',function(){
     try{document.execCommand('copy');done()}catch(e){prompt('Скопируй ссылку:',url)}document.body.removeChild(t);}
 });}
 })();
+</script>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||typeof gtag!=='function')return;
+var h=a.href,n=h.indexOf('t.me/')>-1&&h.indexOf('tribute')<0?'telegram_click':h.indexOf('wa.me/')>-1?'whatsapp_click':null;
+if(n)gtag('event',n,{link_url:h,page_path:location.pathname});},true);
 </script>
 </body>
 </html>
