@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спасибо, до встречи — Никита Смелянский</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--base:#2A353B;--deep:#222C31;--text:#F1EBE1;--muted:rgba(241,235,225,.66);
+--soft:rgba(241,235,225,.84);--gold:#D9A544;--gold-hi:#EBBC61;--line:rgba(241,235,225,.16);
+--fd:'Alegreya',Georgia,serif;--fb:'Manrope',system-ui,sans-serif;--wrap:680px;--gut:26px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--base);color:var(--text);font-family:var(--fb);font-size:17.5px;line-height:1.68;-webkit-font-smoothing:antialiased;min-height:100svh;display:flex;flex-direction:column}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut);width:100%}
+main{flex:1;display:flex;align-items:center;padding:90px 0 60px}
+h1{font-family:var(--fd);font-weight:800;line-height:1.1;letter-spacing:-.015em;font-size:clamp(36px,5.6vw,54px);margin-top:14px}
+p{margin-top:16px;color:var(--soft)}
+.kick{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);font-weight:600}
+ol{margin:22px 0 0 20px;color:var(--soft)}ol li{margin-top:8px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-block;font-size:16px;font-weight:600;padding:15px 30px;border-radius:2px;text-decoration:none;text-align:center;font-family:var(--fb)}
+.btn-gold{background:var(--gold);color:#241D0E;border:1px solid var(--gold)}.btn-gold:hover{background:var(--gold-hi)}
+.btn-line{border:1px solid rgba(241,235,225,.34);color:var(--text)}.btn-line:hover{border-color:var(--text)}
+footer{border-top:1px solid var(--line);padding:26px 0 44px;font-size:13.5px;color:var(--muted)}
+footer a{text-decoration:none}footer a:hover{color:var(--text)}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+</style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-04R6GHW7B1"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-04R6GHW7B1');gtag('config','G-55WLZ4ZL3H');
+</script>
+<script>
+if(typeof gtag==='function')gtag('event','booking_confirmed',{page_path:location.pathname});
+</script>
+</head>
+<body>
+<main>
+  <div class="wrap">
+    <p class="kick">Запись подтверждена</p>
+    <h1>Спасибо, до встречи!</h1>
+    <p>Ты записался на знакомство с Никитой. Это короткий созвон, где можно спокойно спросить всё про круг и понять, подходит ли он тебе.</p>
+    <ol>
+      <li>Письмо с временем и ссылкой на созвон уже пришло на почту. Если не видно — проверь «Спам».</li>
+      <li>Если планы поменяются, перенеси время по ссылке из письма или напиши Никите.</li>
+    </ol>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://t.me/NikitaSmelyanskiy" target="_blank" rel="noopener">Написать Никите в Telegram</a>
+      <a class="btn btn-line" href="../">Вернуться на сайт</a>
+    </div>
+  </div>
+</main>
+<footer><div class="wrap">&copy; 2026 Никита Смелянский · <a href="https://instagram.com/nikita_smelyanskiy" target="_blank" rel="noopener">Instagram</a></div></footer>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||typeof gtag!=='function')return;
+var h=a.href,n=h.indexOf('t.me/')>-1&&h.indexOf('tribute')<0?'telegram_click':h.indexOf('wa.me/')>-1?'whatsapp_click':null;
+if(n)gtag('event',n,{link_url:h,page_path:location.pathname,button:a.getAttribute('data-btn')||'page'});},true);
+</script>
+</body>
+</html>
