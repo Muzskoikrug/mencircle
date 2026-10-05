@@ -167,6 +167,8 @@ background:var(--gold);color:#241D0E;border:1px solid var(--gold);border-radius:
 text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.28);transition:background .2s}
 .tg-float:hover{background:var(--gold-hi);border-color:var(--gold-hi)}
 .tg-float svg{width:18px;height:18px;flex:none}
+.tg-float{transition:background .2s,opacity .25s,transform .25s}
+.tg-float.wait{opacity:0;transform:translateY(12px);pointer-events:none}
 .up.on{opacity:1;pointer-events:auto}
 .up:hover{border-color:var(--gold);color:var(--gold-hi)}
 
@@ -395,6 +397,12 @@ if(sh){sh.addEventListener('click',function(){
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||typeof gtag!=='function')return;
 var h=a.href,n=h.indexOf('t.me/')>-1&&h.indexOf('tribute')<0?'telegram_click':h.indexOf('wa.me/')>-1?'whatsapp_click':null;
 if(n)gtag('event',n,{link_url:h,page_path:location.pathname,button:a.getAttribute('data-btn')||'page'});},true);
+</script>
+<script>
+(function(){var f=document.querySelector('.tg-float'),t=document.querySelector('.cta a[href="#join"]');
+if(!f||!t||!('IntersectionObserver' in window))return;
+f.classList.add('wait');
+new IntersectionObserver(function(e){var r=e[0];f.classList.toggle('wait',r.isIntersecting||r.boundingClientRect.top>0);},{threshold:0}).observe(t);})();
 </script>
 </body>
 </html>
